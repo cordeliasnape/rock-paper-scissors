@@ -1,3 +1,10 @@
+function goodbyeOverlay() {
+  document.getElementById("overlay");
+  overlay.style.display = "none";
+}
+
+overlayClear.addEventListener("click", goodbyeOverlay);
+
 const userChoiceSelector = document.getElementById("userChoice");
 const playButton = document.getElementById("playButton");
 

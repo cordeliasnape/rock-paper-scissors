@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito&display=swap");
+
+body {
+  display: flex;
+  font-family: "Gabarito", sans-serif;
+}
+
+button {
+  font-family: "Gabarito", sans-serif;
+  font-size: 20px;
+  height: 50px;
+  width: 150px;
+}
+
+header {
+  display: flex;
+}
+
+nav {
+  display: flex;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#overlay {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #34344ada;
+  color: #dbf9b8;
+  border: 10px solid #dbf9b8;
+  width: 50%;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  line-height: 1.3;
+}
+
+#overlay:hover {
+  transition-duration: 300ms;
+  background-color: #34344a;
+}
+
+#overlay p {
+  text-align: center;
+  margin: 10px;
+  font-size: 30px;
+}
+
+#overlay p:nth-child(3) {
+  color: #99d9eb;
+}
+
+#overlay button {
+  margin-top: 20px;
+  background-color: #dbf9b8;
+  color: #34344a;
+  border: transparent solid 1px;
+  box-shadow: 4px 4px white;
+}
+
+#overlay button:hover {
+  box-shadow: 2px 2px white;
+  transition-duration: 300ms;
+}
