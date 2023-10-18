@@ -92,9 +92,10 @@ main {
   justify-content: center; */
   width: 80%;
   max-width: 800px;
-  height: 60vh;
+  height: 65vh;
   background-color: #f2f8f4;
   flex-wrap: wrap;
+  margin: 20px;
 }
 
 #userBox {
@@ -118,13 +119,23 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  border: 3px solid white;
+}
+
+select {
+  font-size: larger;
+  padding: 5px;
+  font-family: "Gabarito", sans-serif;
   background-color: #99d9eb;
+  color: white;
+  border: #6cb1c4 2px solid;
 }
 
 #playButton {
   width: 80px;
   margin: 10px;
+  background-color: #99d9eb;
+  color: white;
+  border: #6cb1c4 2px solid;
 }
 
 #compBox {
@@ -142,35 +153,80 @@ main {
   justify-content: center;
   width: 200px;
   height: 200px;
-  /* border: yellow solid 4px; */
-  margin: 30px;
+  border: #dbf9b8 solid 8px;
+  background-color: white;
+  padding: 10px;
+  margin: 20px;
 }
 
 .choiceResult {
   font-size: 25px;
-  margin: 20px auto;
+  margin: 15px auto;
 }
 
 #userImg {
   transform: rotate(90deg);
+  animation: user-tilt-shaking 1s infinite;
+}
+@keyframes user-tilt-shaking {
+  0% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(91deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(89deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
 }
 
 #compImg {
   transform: rotate(270deg);
+  animation: comp-tilt-shaking 1s infinite;
+}
+@keyframes comp-tilt-shaking {
+  0% {
+    transform: rotate(270deg);
+  }
+  25% {
+    transform: rotate(269deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(271deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
 }
 
 #shootButton {
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
-  margin: 20px auto;
-  width: 150px;
+  margin: 40px auto;
+  width: 160px;
+  height: 60px;
+  background-color: #efd647;
+  color: white;
+  font-size: 30px;
+  border: #d4be3f 4px solid;
 }
 
 #roundResult {
   display: flex;
   height: max-content;
   font-size: 50px;
-  margin: 20px;
+  margin: 0px 10px 20px 10px;
+  padding: 20px;
+  background-color: #f2f8f4;
 }
 
 footer {
