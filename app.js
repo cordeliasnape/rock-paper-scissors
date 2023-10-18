@@ -1,6 +1,7 @@
 const userChoiceSelector = document.getElementById("userChoice");
 const playButton = document.getElementById("playButton");
 //unneccesary? vv
+const restartButton = document.getElementById("restartButton");
 const shootButton = document.getElementById("shootButton");
 const userResult = document.getElementById("userResult");
 const compResult = document.getElementById("compResult");
@@ -10,6 +11,10 @@ const overlayClear = document.getElementById("overlayClear");
 
 let playerScore = 0;
 let computerScore = 0;
+let roundsPlayed = 0;
+let totalRounds = 5;
+let userGamesWon = 0;
+let compGamesWon = 0;
 
 function playRound(userChoice, compChoice) {
   if (userChoice === compChoice) {
@@ -25,7 +30,41 @@ function playRound(userChoice, compChoice) {
     computerScore++;
     roundResult.textContent = "Computer wins!";
   }
+  roundsPlayed++;
+  console.log(`The user has ${playerScore}`);
+  console.log(`The computer has ${computerScore}`);
+  // localStorage.setItem("playerScore", playerScore);
+  // localStorage.setItem("computerScore", computerScore);
+
+  if (roundsPlayed === totalRounds) {
+    if (playerScore > computerScore) {
+      roundResult.textContent = "User wins the game!";
+      userGamesWon++;
+    } else if (computerScore > playerScore) {
+      roundResult.textContent = "Computer wins the game!";
+      compGamesWon++;
+    } else {
+      roundResult.textContent = "It's a tie game!";
+    }
+    shootButton.style.display = "none";
+    restartButton.style.display = "block";
+  }
 }
+
+restartButton.addEventListener("click", function () {
+  restartButton.style.display = "none";
+  shootButton.style.display = "block";
+  totalRounds = 5;
+  playerScore = 0;
+  computerScore = 0;
+  roundsPlayed = 0;
+  roundResult.textContent = "";
+  roundResult.style.display = "none";
+
+  // localStorage.setItem("userGamesWon", userGamesWon);
+  // localStorage.setItem("compGamesWon", compGamesWon);
+  playRound;
+});
 
 overlayClear.addEventListener("click", goodbyeOverlay);
 function goodbyeOverlay() {
@@ -72,7 +111,23 @@ function chooseCompHand() {
 shootButton.addEventListener("click", function () {
   const userChoice = userChoiceSelector.value;
   const compChoice = chooseCompHand();
+  const handImages = document.querySelectorAll(".handImage");
+  handImages.forEach(function (element) {
+    element.style.animation = "oneTwoThree 3s"; //
+  });
   playRound(userChoice, compChoice);
+  roundResult.style.display = "block";
 });
+
+// window.addEventListener("load", function () {
+//   const playerScore = parseInt(localStorage.getItem("playerScore")) || 0;
+//   const computerScore = parseInt(localStorage.getItem("computerScore")) || 0;
+//   const userGamesWon = parseInt(localStorage.getItem("userGamesWon")) || 0;
+//   const compGamesWon = parseInt(localStorage.getItem("compGamesWon")) || 0;
+//   playerScore += playerScore;
+//   computerScore += computerScore;
+//   userGamesWon += userGamesWon;
+//   compGamesWon += compGamesWon;
+// });
 
 //local stoarge can remember how many times the user and comp have won and gived back a statistical likelyhood of winning?

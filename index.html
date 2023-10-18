@@ -10,6 +10,8 @@
   </head>
   <body>
     <header>
+      <h3 class="points" id="userPoints"></h3>
+      <h3 class="points" id="compPoints"></h3>
       <nav>
         <a></a>
       </nav>
@@ -31,7 +33,7 @@
       <div id="gameBox">
         <div id="userBox">
           <div class="imgBox">
-            <img id="userImg" />
+            <img class="handImage" id="userImg" />
           </div>
           <h3 class="choiceResult" id="userResult"></h3>
           <div id="selector">
@@ -45,11 +47,12 @@
         </div>
         <div id="compBox">
           <div class="imgBox">
-            <img id="compImg" />
+            <img class="handImage" id="compImg" />
           </div>
           <h3 class="choiceResult" id="compResult"></h3>
         </div>
-        <button id="shootButton">Shoot</button>
+        <button class="gameBoxButton" id="shootButton">Shoot</button>
+        <button class="gameBoxButton" id="restartButton">Restart?</button>
       </div>
       <div id="announcer">
         <h2 id="roundResult"></h2>
