@@ -1,17 +1,41 @@
-function goodbyeOverlay() {
-  document.getElementById("overlay");
-  overlay.style.display = "none";
+const userChoiceSelector = document.getElementById("userChoice");
+const playButton = document.getElementById("playButton");
+//unneccesary? vv
+const shootButton = document.getElementById("shootButton");
+const userResult = document.getElementById("userResult");
+const compResult = document.getElementById("compResult");
+const roundResult = document.getElementById("roundResult");
+const compImg = document.getElementById("compImg");
+const overlayClear = document.getElementById("overlayClear");
+
+let playerScore = 0;
+let computerScore = 0;
+
+function playRound(userChoice, compChoice) {
+  if (userChoice === compChoice) {
+    roundResult.textContent = "It's a tie!";
+  } else if (
+    (userChoice === "rock" && compChoice === "scissors") ||
+    (userChoice === "paper" && compChoice === "rock") ||
+    (userChoice === "scissors" && compChoice === "paper")
+  ) {
+    playerScore++;
+    roundResult.textContent = "User wins!";
+  } else {
+    computerScore++;
+    roundResult.textContent = "Computer wins!";
+  }
 }
 
 overlayClear.addEventListener("click", goodbyeOverlay);
-
-const userChoiceSelector = document.getElementById("userChoice");
-const playButton = document.getElementById("playButton");
+function goodbyeOverlay() {
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "none";
+}
 
 function chooseUserHand() {
   const userChoice = userChoiceSelector.value;
   userResult.textContent = `You chose ${userChoice}`;
-
   if (userChoice === "rock") {
     document.getElementById("userImg").src = "./images/userRock.png";
   } else if (userChoice === "paper") {
@@ -23,34 +47,32 @@ function chooseUserHand() {
 
 playButton.addEventListener("click", chooseUserHand);
 
-//user clicks button
-//computer randomly chooses
-
 function getRandomNumber() {
   return Math.floor(Math.random() * 3) + 1;
 }
 
-let compNumber = getRandomNumber();
-console.log(compNumber);
-// console.log
-
-let compChoice;
 function chooseCompHand() {
+  const compNumber = getRandomNumber();
+
   if (compNumber === 1) {
-    document.getElementById("compImg").src = "./images/compRock.png";
-    compResult.textContent = `The computer chose rock`;
-    return (compChoice = "compRock");
+    compImg.src = "./images/compRock.png";
+    compResult.textContent = "The computer chose rock";
+    return "rock";
   } else if (compNumber === 2) {
-    document.getElementById("compImg").src = "./images/compPaper.png";
-    compResult.textContent = `The computer chose paper`;
-    return (compChoice = "compPaper");
-  } else if (compNumber === 3) {
-    document.getElementById("compImg").src = "./images/compScissors.png";
-    compResult.textContent = `The computer chose scissors`;
-    return (compChoice = "compScissors");
+    compImg.src = "./images/compPaper.png";
+    compResult.textContent = "The computer chose paper";
+    return "paper";
+  } else {
+    compImg.src = "./images/compScissors.png";
+    compResult.textContent = "The computer chose scissors";
+    return "scissors";
   }
 }
 
-shootButton.addEventListener("click", chooseCompHand);
+shootButton.addEventListener("click", function () {
+  const userChoice = userChoiceSelector.value;
+  const compChoice = chooseCompHand();
+  playRound(userChoice, compChoice);
+});
 
-console.log(`The computer chose ${compChoice}`);
+//local stoarge can remember how many times the user and comp have won and gived back a statistical likelyhood of winning?

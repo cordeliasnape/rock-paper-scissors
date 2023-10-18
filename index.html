@@ -30,23 +30,33 @@
       </section>
       <div id="gameBox">
         <div id="userBox">
-          <img id="userImg" />
-          <h3 id="userResult"></h3>
+          <div class="imgBox">
+            <img id="userImg" />
+          </div>
+          <h3 class="choiceResult" id="userResult"></h3>
+          <div id="selector">
+            <select id="userChoice">
+              <option value="rock">Rock</option>
+              <option value="paper">Paper</option>
+              <option value="scissors">Scissors</option>
+            </select>
+            <button id="playButton">Select</button>
+          </div>
         </div>
         <div id="compBox">
-          <img id="compImg" />
-          <h3 id="compResult"></h3>
+          <div class="imgBox">
+            <img id="compImg" />
+          </div>
+          <h3 class="choiceResult" id="compResult"></h3>
         </div>
+        <button id="shootButton">Shoot</button>
       </div>
-      <div id="selector">
-        <select id="userChoice">
-          <option value="rock">Rock</option>
-          <option value="paper">Paper</option>
-          <option value="scissors">Scissors</option>
-        </select>
-        <button id="playButton">Choose</button>
+      <div id="announcer">
+        <h2 id="roundResult"></h2>
       </div>
-      <button id="shootButton">Shoot</button>
     </main>
+    <footer>
+      <p>Created by Cordelia Snape.</p>
+    </footer>
   </body>
 </html>

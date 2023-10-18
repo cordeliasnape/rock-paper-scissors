@@ -3,17 +3,21 @@
 body {
   display: flex;
   font-family: "Gabarito", sans-serif;
+  width: 100%;
+  height: 100vh;
+  flex-wrap: wrap;
 }
 
 button {
   font-family: "Gabarito", sans-serif;
   font-size: 20px;
   height: 50px;
-  width: 150px;
 }
 
 header {
   display: flex;
+  height: 10vh;
+  width: 100%;
 }
 
 nav {
@@ -24,6 +28,10 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  border: solid green 3px;
+  height: 80vh;
+  width: 100%;
 }
 
 #overlay {
@@ -32,22 +40,23 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #34344ada;
+  background-color: #34344a;
   color: #dbf9b8;
   border: 10px solid #dbf9b8;
-  width: 50%;
-  height: fit-content;
+  width: 80%;
+  max-width: 500px;
+  height: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 20px;
   line-height: 1.3;
 }
 
-#overlay:hover {
+/* #overlay:hover {
   transition-duration: 300ms;
   background-color: #34344a;
-}
+} */
 
 #overlay p {
   text-align: center;
@@ -65,9 +74,94 @@ main {
   color: #34344a;
   border: transparent solid 1px;
   box-shadow: 4px 4px white;
+  width: 150px;
 }
 
 #overlay button:hover {
   box-shadow: 2px 2px white;
   transition-duration: 300ms;
+}
+
+#gameBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  /* align-items: flex-start;
+  justify-content: center; */
+  width: 80%;
+  max-width: 800px;
+  height: 60vh;
+  outline: red solid 3px;
+  flex-wrap: wrap;
+}
+
+#userBox {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: red solid 3px;
+  max-height: max-content;
+}
+
+#userChoice {
+  height: 50px;
+  width: 100px;
+}
+
+#playButton {
+  width: 80px;
+}
+
+#compBox {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: red solid 3px;
+}
+
+.imgBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  border: yellow solid 4px;
+  margin: 30px;
+}
+
+.choiceResult {
+  font-size: 25px;
+  margin: 20px;
+}
+
+#userImg {
+  transform: rotate(90deg);
+}
+
+#compImg {
+  transform: rotate(270deg);
+}
+
+#shootButton {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+  margin: 20px auto;
+  width: 150px;
+}
+
+#roundResult {
+  display: flex;
+  height: max-content;
+  font-size: 50px;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  border: solid green 3px;
 }
