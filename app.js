@@ -111,10 +111,7 @@ function chooseCompHand() {
 shootButton.addEventListener("click", function () {
   const userChoice = userChoiceSelector.value;
   const compChoice = chooseCompHand();
-  const handImages = document.querySelectorAll(".handImage");
-  handImages.forEach(function (element) {
-    element.style.animation = "oneTwoThree 3s"; //
-  });
+
   playRound(userChoice, compChoice);
   roundResult.style.display = "block";
 });
