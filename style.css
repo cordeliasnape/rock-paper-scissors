@@ -177,45 +177,28 @@ select {
 
 #userImg {
   transform: rotate(90deg);
-  animation: user-tilt-shaking 1s infinite;
-}
-@keyframes user-tilt-shaking {
-  0% {
-    transform: rotate(90deg);
-  }
-  25% {
-    transform: rotate(91deg);
-  }
-  50% {
-    transform: rotate(90deg);
-  }
-  75% {
-    transform: rotate(89deg);
-  }
-  100% {
-    transform: rotate(90deg);
-  }
+  animation: tilt-shaking 1s infinite;
 }
 
 #compImg {
   transform: rotate(270deg);
-  animation: comp-tilt-shaking 1s infinite;
+  animation: tilt-shaking 1s infinite;
 }
-@keyframes comp-tilt-shaking {
+@keyframes tilt-shaking {
   0% {
-    transform: rotate(270deg);
+    transform: rotate(0deg);
   }
   25% {
-    transform: rotate(269deg);
+    transform: rotate(-1deg);
   }
   50% {
-    transform: rotate(270deg);
+    transform: rotate(0deg);
   }
   75% {
-    transform: rotate(271deg);
+    transform: rotate(1deg);
   }
   100% {
-    transform: rotate(270deg);
+    transform: rotate(0deg);
   }
 }
 
