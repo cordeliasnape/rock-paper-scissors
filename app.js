@@ -55,8 +55,6 @@ function playRound(userChoice, compChoice) {
       roundResult.textContent = "Computer wins the game!";
       compGamesWon++;
       computerTotalGamesWon++;
-
-      computerTotalGamesWon++;
     } else {
       roundResult.textContent = "It's a tie game!";
     }
