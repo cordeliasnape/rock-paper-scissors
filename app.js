@@ -6,8 +6,17 @@ const shootButton = document.getElementById("shootButton");
 const userResult = document.getElementById("userResult");
 const compResult = document.getElementById("compResult");
 const roundResult = document.getElementById("roundResult");
+const instruction = document.getElementById("instruction");
 const compImg = document.getElementById("compImg");
 const overlayClear = document.getElementById("overlayClear");
+const userPointsScoreElement = document.getElementById("userPointsScore");
+const computerPointsScoreElement = document.getElementById(
+  "computerPointsScore"
+);
+const userTotalGamesWonElement = document.getElementById("userTotalGamesWon");
+const computerTotalGamesWonElement = document.getElementById(
+  "computerTotalGamesWon"
+);
 
 let playerScore = 0;
 let computerScore = 0;
@@ -15,6 +24,8 @@ let roundsPlayed = 0;
 let totalRounds = 5;
 let userGamesWon = 0;
 let compGamesWon = 0;
+let playerTotalGamesWon = 0;
+let computerTotalGamesWon = 0;
 
 function playRound(userChoice, compChoice) {
   if (userChoice === compChoice) {
@@ -31,23 +42,34 @@ function playRound(userChoice, compChoice) {
     roundResult.textContent = "Computer wins!";
   }
   roundsPlayed++;
-  console.log(`The user has ${playerScore}`);
-  console.log(`The computer has ${computerScore}`);
-  // localStorage.setItem("playerScore", playerScore);
-  // localStorage.setItem("computerScore", computerScore);
+
+  userPointsScoreElement.textContent = `User Points: ${playerScore}`;
+  computerPointsScoreElement.textContent = `Computer Points: ${computerScore}`;
 
   if (roundsPlayed === totalRounds) {
     if (playerScore > computerScore) {
       roundResult.textContent = "User wins the game!";
       userGamesWon++;
+      playerTotalGamesWon++;
     } else if (computerScore > playerScore) {
       roundResult.textContent = "Computer wins the game!";
       compGamesWon++;
+      computerTotalGamesWon++;
+
+      computerTotalGamesWon++;
     } else {
       roundResult.textContent = "It's a tie game!";
     }
+
+    // playerTotalGamesWon += playerScore;
+    // computerTotalGamesWon += computerScore;
+
+    userTotalGamesWonElement.textContent = `User Total Games Won: ${playerTotalGamesWon}`;
+    computerTotalGamesWonElement.textContent = `Computer Total Games Won: ${computerTotalGamesWon}`;
+
     shootButton.style.display = "none";
     restartButton.style.display = "block";
+    instruction.style.display = "block";
   }
 }
 
@@ -60,6 +82,7 @@ restartButton.addEventListener("click", function () {
   roundsPlayed = 0;
   roundResult.textContent = "";
   roundResult.style.display = "none";
+  instruction.style.display = "block";
 
   // localStorage.setItem("userGamesWon", userGamesWon);
   // localStorage.setItem("compGamesWon", compGamesWon);
@@ -114,6 +137,7 @@ shootButton.addEventListener("click", function () {
 
   playRound(userChoice, compChoice);
   roundResult.style.display = "block";
+  instruction.style.display = "none";
 });
 
 // window.addEventListener("load", function () {

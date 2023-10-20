@@ -27,14 +27,55 @@ button {
 
 header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 10vh;
   width: 100%;
   background-color: #34344a;
   color: #dbf9b8;
 }
 
+h1 {
+  display: flex;
+  color: #e899cd;
+  text-shadow: 1px 1px white;
+  font-size: 50px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
 nav {
   display: flex;
+}
+
+#headerPoints {
+  display: flex;
+  flex-direction: row;
+}
+
+.pointBtn {
+  display: flex;
+  align-items: center;
+  height: 5vh;
+  width: 10vh;
+  background-color: #efd647;
+  color: white;
+  border: #d4be3f 4px solid;
+  padding: 5px;
+  margin: 0px 10px;
+}
+
+.gamesBtn {
+  display: flex;
+  align-items: center;
+  height: 5vh;
+  width: 15vh;
+  background-color: #efd647;
+  color: white;
+  border: #d4be3f 4px solid;
+  padding: 5px;
+  margin: 0px 10px;
 }
 
 main {
@@ -228,6 +269,15 @@ select {
   margin: 0px 10px 20px 10px;
   padding: 20px;
   background-color: #f2f8f4;
+}
+
+#instruction {
+  height: max-content;
+  font-size: 50px;
+  margin: 0px 10px 20px 10px;
+  padding: 20px;
+  background-color: #17172f;
+  color: #f2f8f4;
 }
 
 footer {

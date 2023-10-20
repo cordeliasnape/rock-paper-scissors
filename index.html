@@ -10,11 +10,18 @@
   </head>
   <body>
     <header>
-      <h3 class="points" id="userPoints"></h3>
-      <h3 class="points" id="compPoints"></h3>
+      <h1>Rock Paper Scissors</h1>
       <nav>
         <a></a>
       </nav>
+      <div id="headerPoints">
+        <div class="pointBtn" id="userPointsScore">User Points: 0</div>
+        <div class="pointBtn" id="computerPointsScore">Computer Points: 0</div>
+        <div class="gamesBtn" id="userTotalGamesWon">User Games Won: 0</div>
+        <div class="gamesBtn" id="computerTotalGamesWon">
+          Computer Games Won: 0
+        </div>
+      </div>
     </header>
     <main>
       <section id="overlay">
@@ -51,11 +58,12 @@
           </div>
           <h3 class="choiceResult" id="compResult"></h3>
         </div>
-        <button class="gameBoxButton" id="shootButton">Shoot</button>
+        <button class="gameBoxButton" id="shootButton">Go</button>
         <button class="gameBoxButton" id="restartButton">Restart?</button>
       </div>
       <div id="announcer">
         <h2 id="roundResult"></h2>
+        <h2 id="instruction">Select your hand, then go!</h2>
       </div>
     </main>
     <footer>
